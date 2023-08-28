@@ -4,19 +4,14 @@ var wordHardHistory = [];
 
 function loadSetting() {
     menuSetting = JSON.parse(localStorage.getItem("menuSetting") ?? "{}");
-    if (menuSetting.Level) {
-        $("#level_sel").val(menuSetting.Level);
-    }
+
     if (menuSetting.ViewType) {
         $("#view_type_sel").val(menuSetting.ViewType);
     }
     if (menuSetting.WordType) {
         $("#word_type_sel").val(menuSetting.WordType);
-    }
-    if (menuSetting.WordKan) {
-        $("#wb_kan_sel").val(menuSetting.WordKan);
-    } else {
-        $("#wb_kan_sel").val("wordbook");
+    }else{
+        $("#word_type_sel").val("all");
     }
 
     lessonHistory = JSON.parse(localStorage.getItem("lessonHistory") ?? "[]");

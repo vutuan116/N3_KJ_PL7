@@ -15,26 +15,13 @@ $(document).ready(function () {
         _grammarJson.push(item);
     });
     
-    viewListLevel();
     loadSetting();
     viewListLesson();
     goPage();
-
-    $("#wb_kan_sel").on('change', () => {
-        if ($("#wb_kan_sel").val() == "wordbook") {
-            $("#wordbook_lesson_div").removeClass("hide");
-            $("#kanji_lesson_div").addClass("hide");
-            $("#grammar_lesson_div").addClass("hide");
-        } else if ($("#wb_kan_sel").val() == "kanji"){
-            $("#wordbook_lesson_div").addClass("hide");
-            $("#kanji_lesson_div").removeClass("hide");
-            $("#grammar_lesson_div").addClass("hide");
-        }else{
-            $("#wordbook_lesson_div").addClass("hide");
-            $("#kanji_lesson_div").addClass("hide");
-            $("#grammar_lesson_div").removeClass("hide");
-        }
-    });
+    
+    $("#wordbook_lesson_div").addClass("hide");
+    $("#kanji_lesson_div").removeClass("hide");
+    $("#grammar_lesson_div").addClass("hide");
 
     $(".btn_repeat").on('click', () => {
         this.toggleClass("on");
@@ -43,21 +30,6 @@ $(document).ready(function () {
         this.toggleClass("on");
     });
 });
-
-function viewListLevel() {
-    _levelJson = [];
-    _tuVungJson.forEach(x => {
-        if (!_levelJson.includes(x.Level)) {
-            _levelJson.push(x.Level);
-        }
-    });
-    $("#level_sel").empty();
-    _levelJson.forEach(x => {
-        $("#level_sel").append(
-            `<option value=${x}>${x}</option>`
-        );
-    })
-}
 
 function viewListLesson() {
     let indexWb = 0;
